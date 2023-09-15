@@ -27,7 +27,7 @@ jobs:
           role-to-assume: arn:aws:iam::199909611641:role/GitHubAction-AssumeRoleWithAction
           role-session-name: GitHubAction-AssumeRoleWithAction
           aws-region: ${{ env.AWS_REGION }}
-      # Hello from AWS: check4
+      # Hello from AWS: check5
       - name: Sts GetCallerIdentity
         run: |
           aws sts get-caller-identity
