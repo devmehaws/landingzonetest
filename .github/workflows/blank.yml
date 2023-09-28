@@ -5,7 +5,7 @@ on:
     inputs:
       tagEnvironment:
         type: choice
-        description: Who to greet
+        description: Select the Environment Tag
         options: 
         - "Key=environment,Value=nonprod"
         - "Key=environment,Value=prod"
@@ -19,4 +19,4 @@ jobs:
 
     steps:
     - name: Execute Tagging cli
-      run: echo "aws organizations tag-resource --resource-id ${{ github.event.inputs.tagEnvironment }}  ${{ github.event.inputs.Resource_id }}"
+      run: echo "aws organizations tag-resource --resource-id ${{ github.event.inputs.Resource_id }}" ${{ github.event.inputs.tagEnvironment }}  ${{ github.event.inputs.Resource_id }}"
