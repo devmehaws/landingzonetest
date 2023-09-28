@@ -3,24 +3,20 @@ name: Mixed inputs
 on:
   workflow_dispatch:
     inputs:
-      name:
+      tagEnvironment:
         type: choice
-        description:
+        description:Choose Tag Key from the menu
         options: 
-        - monalisa
-        - cschleiden
-      message:
+        - Key=environment,Value=nonprod
+        - Key=environment,Value=prod
+      Resource_id:
         required: true
-      use-emoji:
-        type: boolean
-        description: Include 🎉🤣 emojis
-      environment:
-        type: environment
+    
 
 jobs:
   greet:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Send greeting
-      run: echo "${{ github.event.inputs.message }} ${{ fromJSON('["", "🥳"]')[github.event.inputs.use-emoji == 'true'] }} ${{ github.event.inputs.name }}"
+    - name: Execute Tagging cli
+      run: echo "aws organizations tag-resource --resource-id ${{ github.event.inputs.tagEnvironment }}  ${{ github.event.inputs.Resource_id }}"
