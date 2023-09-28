@@ -16,9 +16,8 @@ env:
 
 
 jobs:
-  AccountTagging:
+  AssumeRoleAndCallIdentity:
     runs-on: ubuntu-latest
-
     steps:
       - name: Git clone the repository
         uses: actions/checkout@v3
@@ -31,5 +30,5 @@ jobs:
       - name: Sts GetCallerIdentity
         run: |
           aws sts get-caller-identity
-      - name: Execute Tagging cli
-        run: echo "aws organizations tag-resource --resource-id ${{ github.event.inputs.Resource_id }} --tags ${{ github.event.inputs.tagEnvironment }}"
+      # - name: Execute Tagging cli
+      #   run: echo "aws organizations tag-resource --resource-id ${{ github.event.inputs.Resource_id }} --tags ${{ github.event.inputs.tagEnvironment }}"
