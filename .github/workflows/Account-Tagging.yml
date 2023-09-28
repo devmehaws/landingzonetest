@@ -11,7 +11,9 @@ on:
         - "Key=environment,Value=prod"
       Resource_id:
         required: true
-    
+env: 
+  AWS_REGION : us-east-1 #Change to reflect your Region
+
 
 jobs:
   AccountTagging:
