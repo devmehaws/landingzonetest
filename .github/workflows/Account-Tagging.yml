@@ -6,10 +6,10 @@ on:
       tagEnvironment:
         type: choice
         description: Select the Environment Tag
-        options: 
+        options:  #Change to provide inputs for Account Tags
         - "Key=environment,Value=nonprod"
         - "Key=environment,Value=prod"
-      Resource_id:
+      Resource_id:             #Mandatory parameter : Resourceid of the Account created
         required: true
         
 permissions:
