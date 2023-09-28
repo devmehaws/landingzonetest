@@ -14,7 +14,7 @@ on:
     
 
 jobs:
-  greet:
+  AccountTagging:
     runs-on: ubuntu-latest
 
     steps:
