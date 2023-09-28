@@ -32,7 +32,7 @@ jobs:
           role-to-assume: arn:aws:iam::042374093782:role/GitHubAction-AssumeRoleWithAction
           role-session-name: GitHubAction-AssumeRoleWithAction
           aws-region: ${{ env.AWS_REGION }}
-      - name: Sts GetCallerIdentity
+      - name: Execute Tagging cli
         run: |
           aws organizations tag-resource --resource-id ${{ github.event.inputs.Resource_id }} --tags ${{ github.event.inputs.tagEnvironment }}
           # aws sts get-caller-identity
