@@ -21,7 +21,7 @@ env:
 
 
 jobs:
-  AssumeRoleAndCallIdentity:
+  AssumeRoleAndApplyTags:
     runs-on: ubuntu-latest
     steps:
       - name: Git clone the repository
@@ -34,6 +34,7 @@ jobs:
           aws-region: ${{ env.AWS_REGION }}
       - name: Sts GetCallerIdentity
         run: |
-          aws sts get-caller-identity
+          aws organizations tag-resource --resource-id ${{ github.event.inputs.Resource_id }} --tags ${{ github.event.inputs.tagEnvironment }}
+          # aws sts get-caller-identity
       # - name: Execute Tagging cli
       #   run: echo "aws organizations tag-resource --resource-id ${{ github.event.inputs.Resource_id }} --tags ${{ github.event.inputs.tagEnvironment }}"
