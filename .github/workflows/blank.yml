@@ -5,10 +5,10 @@ on:
     inputs:
       tagEnvironment:
         type: choice
-        description:Choose Tag Key from the menu
+        description: Who to greet
         options: 
-        - Key=environment,Value=nonprod
-        - Key=environment,Value=prod
+        - "Key=environment,Value=nonprod"
+        - "Key=environment,Value=prod"
       Resource_id:
         required: true
     
